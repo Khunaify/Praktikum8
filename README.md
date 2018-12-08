@@ -108,9 +108,9 @@ cout << "5x(5) = " << kali_rekursif(5,5) << endl;
 1. Mulai program tersebut 
 2. input int perkalian a,b,c
 3. input int bil1,bil2,bil3
-
-
 ```
+
+
 **CODE PROGRAM**
 ```
 #include<iostream>
@@ -120,15 +120,14 @@ int perkalian2(int B);
 int perkalian3(int C);
 int main()
 {
-    int bil1,bil2,bil3;
-    cout<<"Masukan nilai N = ";cin>> bil1;
-    cout<<"Nilai T = "<<perkalian(bil1)<<endl<<endl;
-    cout<<"Masukan nilai N = ";cin>> bil2;
-    cout<<"Nilai T = "<<perkalian(bil2)<<endl<<endl;
-    cout<<"Masukan nilai N = ";cin>> bil3;
-    cout<<"Nilai T = "<<perkalian(bil3)<<endl<<endl;
-    cout<<endl<<"selesai guys"<<endl;
-
+int bil1,bil2,bil3;
+cout<<"Masukan nilai N = ";cin>> bil1;
+cout<<"Nilai T = "<<perkalian(bil1)<<endl<<endl;
+cout<<"Masukan nilai N = ";cin>> bil2;
+cout<<"Nilai T = "<<perkalian(bil2)<<endl<<endl;
+cout<<"Masukan nilai N = ";cin>> bil3;
+cout<<"Nilai T = "<<perkalian(bil3)<<endl<<endl;
+cout<<endl<<"selesai guys"<<endl;
 }
 int perkalian(int A)
 {
@@ -143,5 +142,6 @@ int perkalian3(int C)
  return (C*2.5);
 }
 ```
+
 **Hasil**
-![hasil](https://raw.githubusercontent.com/Khunaify/praktikum7/master/lat3.png)
+![Hasil](https://raw.githubusercontent.com/Khunaify/praktikum7/master/lat3.png)
