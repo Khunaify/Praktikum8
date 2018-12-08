@@ -100,15 +100,16 @@ cout << "5x(5) = " << kali_rekursif(5,5) << endl;
 }
 
 ```
-**Hasiil**
+**Hasil**
 ![Hasil](https://raw.githubusercontent.com/Khunaify/praktikum7/master/lat2.png)
 
 ##lat3.cpp
+	
 **Alur Argoritma**
 1. Mulai program tersebut 
 2. input int perkalian a,b,c
 3. input int bil1,bil2,bil3
-```
+
 
 
 **CODE PROGRAM**
@@ -143,5 +144,5 @@ cout << "5x(5) = " << kali_rekursif(5,5) << endl;
 	}
 ```
 
-**Hasiil**
+**Hasil**
 ![Hasil](https://raw.githubusercontent.com/Khunaify/praktikum7/master/lat3.png)
