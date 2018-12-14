@@ -1,29 +1,51 @@
 #include<iostream>
+#include<conio.h>
+#include<stdlib.h>
+#include<math.h>
 using namespace std;
-int perkalian(int A);
-int perkalian2(int B);
-int perkalian3(int C);
-int main()
-{
-    int bil1,bil2,bil3;
-    cout<<"Masukan nilai N = ";cin>> bil1;
-    cout<<"Nilai T = "<<perkalian(bil1)<<endl<<endl;
-    cout<<"Masukan nilai N = ";cin>> bil2;
-    cout<<"Nilai T = "<<perkalian(bil2)<<endl<<endl;
-    cout<<"Masukan nilai N = ";cin>> bil3;
-    cout<<"Nilai T = "<<perkalian(bil3)<<endl<<endl;
-    cout<<endl<<"selesai guys"<<endl;
 
-}
-int perkalian(int A)
+main(){
+
+int A[10][10],b,c,baris,kolom;
+char pil;
+do{
+cout<<" ==========PROGRAM TRANSPOSE MATRIKS========= "<<endl;
+cout<<"Jumlah Baris : ";
+cin>>baris;
+cout<<"Jumlah Kolom : ";
+cin>>kolom;
+cout<<endl;
+for (b=0;b<baris;b++)
 {
-    return (A*2.5);
-}
-int perkalian2(int B)
+for (c=0;c<kolom;c++)
 {
- return (B*2.5);
+cout<<"Matriks ["<<b+1<<","<<c+1<<"] = ";
+cin>>A[b][c];
 }
-int perkalian3(int C)
+}
+cout<<endl<<endl;
+cout<<"Matriks Pertama : "<<endl<<endl;
+for (b=0;b<baris;b++)
 {
- return (C*2.5);
+for (c=0;c<kolom;c++)
+{
+cout<<" "<<A[b][c]<<" ";
+}
+cout<<endl<<endl;
+}
+cout<<" Matriks Transpose : "<<endl<<endl;
+for (b=0;b<kolom;b++)
+{
+for (c=0;c<baris;c++)
+{
+cout<<" "<<A[c][b]<<" ";
+}
+cout<<endl;
+cout<<endl;
+}
+getch();
+cout<<" Ingin Mengulang Program ? (Y/N) : ";
+cin>>pil;
+}
+while(pil=='Y'||pil=='y');
 }

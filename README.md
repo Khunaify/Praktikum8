@@ -4,58 +4,43 @@
 ##lat1.cpp
 **Alur Argoritma**
 1. Mulai program tersebut 
-2. input interger fungsi (int, int)
-4. input interger a dan b dan deskripsikan a=0, dan b=1.
-5. jika nilai suku satu (b) adalah =1 dan jika nilai suku dua (a) adalah =0.
-6. maka cetak rumus fungsi iteratif menggunakan for intruksikan fungsi fibionici di awali dengan 2 dan di akhiri dengan indexs suku
-7. deskripsikan variable untuk mencetak fuungsi selanjutnya.
-8. cetak suku fibionacci menggunakan pemanggilan fungsi itertif.
+2. input interger max,n,i,min
+4. masukan statement max > A , min < A
+5. Jalankan.
 
-**Pseudecode**
-1. int typedatar (a, b)
-2. if (bill=1) return a
-3. if (bill=0) return b
-4. for (int i=2; i<=bil; i++)
-5. c= a+b, a=b, b=c
-6. end 
+
 
 **CODE PROGRAM**
 ```
 #include <iostream>
-
 using namespace std;
-
-int iteratif (int bil, int a, int b, int c)
-{
-a=0, b=1;
-if (bil == 1) return b;
-if (bil == 0) return a;
-
-else{
-for(int i=2; i<=bil; i++){
-
-c = a + b;
-a = b;
-b = c;
-}
-return c;
-}
-}
 
 int main()
 {
-int bil, a, b,c;
+   int max,n,i,min;
+   float A[100];
+   cout <<"Masukkan Jumlah Data n : ";cin>>n;
+   for(i=0;i<n;i++){
+		cout << "masukkan bilangan ke "<< i+1 << " : ";
+		cin >> A[i];}
+   max = A[0];
+    for (i=1;i<n;i++){
+       if (max <  A [i])
+            max = A[i];
 
-cout<<"Masukkan bilangan deret ke-: ";
-cin>>bil;
-cout<<"\nBilangan fibonaccinya untuk "<<bil<<" adalah ";
-cout<< iteratif ( bil,  a,  b,  c);
+      if (min >  A [i])
+            min = A[i];
 
-return 0;
+    }
+
+    cout <<"Nilai Terbesar adalah : "<<max<<endl;
+    cout <<"Nilai Terkecil adalah : "<<min<<endl;
+    return 0;
 }
+
 ```
 **Hasil**
-![hasil](https://raw.githubusercontent.com/Khunaify/praktikum7/master/lat1.png)
+![hasil](https://raw.githubusercontent.com/Khunaify/praktikum8/master/soal1.png)
 
 
 ##lat2.cpp
@@ -64,85 +49,150 @@ return 0;
 1. Mulai program tersebut 
 2. input interger fungsi (int a, intb).
 3. jika nilai interger (b==0) return 0.
-4. jika nilai (b>0) intruksikan return a + type data (a, b - 1).
-5. Sebaliknya return (-a) + type Data (a, b+1)
-6. masukan variabel a,b untuk menginput nilai awal dan dibagi degan nilai selanjutny.
-7. cetak nilai perkalian dengan memanggil funsi rekrusif menggunkan type datany.
+4. 
 
-**Pseudecode**
-```
-deskripsi a x b =
-1. 0, untuk b = 0
-2. a + (a x (b-1)), untuk b > 0
-3. -a + (a x (b + 1)), untuk b < 0
-4. end
-```
+
 
 **CODE PROGRAM**
 ```
 #include <iostream>
-#include <stdio.h>
 #include <math.h>
+
 using namespace std;
-int kali_rekursif(int a,int b)
-{
-if (b==0)
-return 0; // kasus basis
-else if (b>0)
-return a + kali_rekursif(a,b-1); // pemanggilan rekursif
-else
-return (-a) + kali_rekursif(a,b+1); // pemanggilan rekursif
+
+class HitungStatistik {
+friend ostream& operator<<(ostream&, HitungStatistik&);
+friend istream& operator>>(istream&, HitungStatistik&);
+public:
+HitungStatistik();
+void hitung_modus();
+private:
+void maksimum();
+void frekuensi();
+int maks, item;
+int n;
+int A[20];
+int f[11];
+};
+
+HitungStatistik::HitungStatistik()
+{ for (int i=0; i<20; i++) f[i] = 0; }
+
+istream& operator>>(istream& in, HitungStatistik& a) {
+cout << "Banyaknya data : ";
+cin >> a.n;
+for (int i = 0; i < a.n; i++) {
+cout << "Data ke- : " << i+1 << " > ";
+cin >> a.A[i];
+}
+return in;
 }
 
-int main()
+void HitungStatistik::maksimum()
 {
-cout << "5x(5) = " << kali_rekursif(5,5) << endl;
+maks = f[0];
+item = 1;
+for (int i=0; i<n; i++)
+if (f[i] > maks) {
+maks = f[i];
+item = i;
+}
+cout << "Modus = " << item;
+}
+
+void HitungStatistik::frekuensi()
+{
+for (int i=1; i<n; i++) ++f[A[i]];
+}
+
+void HitungStatistik::hitung_modus() {
+cout << "Frekuensi running\n";
+frekuensi();
+maksimum();
+}
+
+ostream& operator<<(ostream& out, HitungStatistik& a) {
+cout << "Mulai ...\n";
+a.hitung_modus();
+cout << "Nilai modus : " << a.item;
+return out;
+}
+
+main() {
+HitungStatistik run;
+cin >> run;
+cout << run;
+return 0;
 }
 
 ```
 **Hasil**
-![Hasil](https://raw.githubusercontent.com/Khunaify/praktikum7/master/lat2.png)
+![Hasil](https://raw.githubusercontent.com/Khunaify/praktikum8/master/soal2.png)
 
 ##lat3.cpp
 	
 **Alur Argoritma**
 1. Mulai program tersebut 
-2. input int perkalian a,b,c
-3. input int bil1,bil2,bil3
+2. input int a,b,c,baris dan kolom
+3. menggunakan arrray dan perulangan
 
 
 
 **CODE PROGRAM**
 ```
-#include<iostream>	
-	using namespace std;
-	int perkalian(int A);
-	int perkalian2(int B);
-	int perkalian3(int C);
-	int main()
-	{
-	int 	bil1,	bil2,	bil3;
-	cout<<"Masukan nilai N = ";cin>> bil1;
-	cout<<"Nilai T = "<<perkalian(bil1)<<endl<<endl;
-	cout<<"Masukan nilai N = ";cin>> bil2;
-	cout<<"Nilai T = "<<perkalian(bil2)<<endl<<endl;
-	cout<<"Masukan nilai N = ";cin>> bil3;
-	cout<<"Nilai T = "<<perkalian(bil3)<<endl<<endl;
-	cout<<endl<<"selesai guys"<<endl;
-	}
-	int perkalian(int A)
-	{
-    	return (A*2.5);
-	}
-	int perkalian2(int B)
-	{
- 	return (B*2.5);
-	}
-	int perkalian3(int C)
-	{
- 	return (C*2.5);
-	}
+#include<iostream>
+#include<conio.h>
+#include<stdlib.h>
+#include<math.h>
+using namespace std;
+
+main(){
+
+int A[10][10],b,c,baris,kolom;
+char pil;
+do{
+cout<<" ==========PROGRAM TRANSPOSE MATRIKS========= "<<endl;
+cout<<"Jumlah Baris : ";
+cin>>baris;
+cout<<"Jumlah Kolom : ";
+cin>>kolom;
+cout<<endl;
+for (b=0;b<baris;b++)
+{
+for (c=0;c<kolom;c++)
+{
+cout<<"Matriks ["<<b+1<<","<<c+1<<"] = ";
+cin>>A[b][c];
+}
+}
+cout<<endl<<endl;
+cout<<"Matriks Pertama : "<<endl<<endl;
+for (b=0;b<baris;b++)
+{
+for (c=0;c<kolom;c++)
+{
+cout<<" "<<A[b][c]<<" ";
+}
+cout<<endl<<endl;
+}
+cout<<" Matriks Transpose : "<<endl<<endl;
+for (b=0;b<kolom;b++)
+{
+for (c=0;c<baris;c++)
+{
+cout<<" "<<A[c][b]<<" ";
+}
+cout<<endl;
+cout<<endl;
+}
+getch();
+cout<<" Ingin Mengulang Program ? (Y/N) : ";
+cin>>pil;
+}
+while(pil=='Y'||pil=='y');
+}
+
 ```
 
 **Hasil**
-![Hasil](https://raw.githubusercontent.com/Khunaify/praktikum7/master/lat3.png)
+![Hasil](https://raw.githubusercontent.com/Khunaify/praktikum8/master/soal4.png)

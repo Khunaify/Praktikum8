@@ -1,32 +1,25 @@
 #include <iostream>
-
 using namespace std;
-
-int iteratif (int bil, int a, int b, int c)
-{
-a=0, b=1;
-if (bil == 1) return b;
-if (bil == 0) return a;
-
-else{
-for(int i=2; i<=bil; i++){
-
-c = a + b;
-a = b;
-b = c;
-}
-return c;
-}
-}
 
 int main()
 {
-int bil, a, b,c;
+   int max,n,i,min;
+   float A[100];
+   cout <<"Masukkan Jumlah Data n : ";cin>>n;
+   for(i=0;i<n;i++){
+		cout << "masukkan bilangan ke "<< i+1 << " : ";
+		cin >> A[i];}
+   max = A[0];
+    for (i=1;i<n;i++){
+       if (max <  A [i])
+            max = A[i];
 
-cout<<"Masukkan bilangan deret ke-: ";
-cin>>bil;
-cout<<"\nBilangan fibonaccinya untuk "<<bil<<" adalah ";
-cout<< iteratif ( bil,  a,  b,  c);
+      if (min >  A [i])
+            min = A[i];
 
-return 0;
+    }
+
+    cout <<"Nilai Terbesar adalah : "<<max<<endl;
+    cout <<"Nilai Terkecil adalah : "<<min<<endl;
+    return 0;
 }

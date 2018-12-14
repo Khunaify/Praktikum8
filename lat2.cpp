@@ -1,18 +1,69 @@
 #include <iostream>
-#include <stdio.h>
 #include <math.h>
+
 using namespace std;
-int kali_rekursif(int a,int b)
-{
-if (b==0)
-return 0; // kasus basis
-else if (b>0)
-return a + kali_rekursif(a,b-1); // pemanggilan rekursif
-else
-return (-a) + kali_rekursif(a,b+1); // pemanggilan rekursif
+
+class HitungStatistik {
+friend ostream& operator<<(ostream&, HitungStatistik&);
+friend istream& operator>>(istream&, HitungStatistik&);
+public:
+HitungStatistik();
+void hitung_modus();
+private:
+void maksimum();
+void frekuensi();
+int maks, item;
+int n;
+int A[20];
+int f[11];
+};
+
+HitungStatistik::HitungStatistik()
+{ for (int i=0; i<20; i++) f[i] = 0; }
+
+istream& operator>>(istream& in, HitungStatistik& a) {
+cout << "Banyaknya data : ";
+cin >> a.n;
+for (int i = 0; i < a.n; i++) {
+cout << "Data ke- : " << i+1 << " > ";
+cin >> a.A[i];
+}
+return in;
 }
 
-int main()
+void HitungStatistik::maksimum()
 {
-cout << "5x(5) = " << kali_rekursif(5,5) << endl;
+maks = f[0];
+item = 1;
+for (int i=0; i<n; i++)
+if (f[i] > maks) {
+maks = f[i];
+item = i;
+}
+cout << "Modus = " << item;
+}
+
+void HitungStatistik::frekuensi()
+{
+for (int i=1; i<n; i++) ++f[A[i]];
+}
+
+void HitungStatistik::hitung_modus() {
+cout << "Frekuensi running\n";
+frekuensi();
+maksimum();
+}
+
+ostream& operator<<(ostream& out, HitungStatistik& a) {
+cout << "Mulai ...\n";
+a.hitung_modus();
+cout << "Nilai modus : " << a.item;
+return out;
+}
+
+main() {
+HitungStatistik run;
+cin >> run;
+cout << run;
+return 0;
 }
